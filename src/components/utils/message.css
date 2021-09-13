@@ -1,0 +1,9 @@
+.Toastify__toast--error{
+  background: rgb(168, 3, 3) ;
+  color: #fff;
+}
+
+.Toastify__toast--success{
+  background: rgb(7, 119, 7) ;
+  color: #fff;
+}

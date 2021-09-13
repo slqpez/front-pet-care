@@ -1,0 +1,47 @@
+.Home{
+  background: grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap:2em;
+  height: 100vh;
+  padding: 2em;
+  
+}
+
+
+.Home > h1{
+  margin: 2em;
+}
+
+.btn-create{
+  text-decoration: none;
+  text-align: center;
+  font-size: 1em;
+  padding: 1em;
+  background: rgb(62, 122, 2);
+  color: #fff;
+  width: 250px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-create:hover{
+  background: rgba(62, 122, 2,.8)
+}
+
+
+.btn-out{
+  background: rgb(255, 0, 0);
+  border: none;
+  width: 200px;
+  padding: .7em;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-out:hover{
+  background: rgba(255, 0, 0,.8);
+}
