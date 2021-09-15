@@ -11,23 +11,19 @@ function App() {
   const [user, setUser] = useState({});
   const [logged, setLogged] = useState(false);
 
-  
-  useEffect(()=>{
-    user? setLogged(true): setLogged(false);
-  },[user])
+  useEffect(() => {
+    user ? setLogged(true) : setLogged(false);
+  }, []);
 
-  
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <AuthContext.Provider value={{ logged, setLogged }}>
         <Switch>
           <Route exact path="/">
             {logged ? <Home /> : <Login />}
-            <Home></Home>
           </Route>
           <Route exact path="/login">
             {logged ? <Home /> : <Login />}
-            <Login></Login>
           </Route>
 
           <Route exact path="/register">

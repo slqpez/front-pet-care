@@ -25,6 +25,7 @@ function Home() {
       .catch(err=> setLogged(false));
   }, []);
 
+  console.log(user)
   const handleLogOut = () => {
     localStorage.removeItem("a_t");
     localStorage.removeItem("r_t");
