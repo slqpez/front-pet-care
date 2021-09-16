@@ -42,6 +42,9 @@ function Home() {
       <Link to="/register" className="btn-create">
         Crear nuevo empleado ➕
       </Link>
+      <Link to="/createPet" className="btn-create">
+        Crear nueva mascota ➕
+      </Link>
       <button className="btn-out" onClick={handleLogOut}>
         Salir
       </button>
