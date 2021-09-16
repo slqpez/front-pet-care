@@ -26,6 +26,7 @@ function Home() {
   }, []);
 
   console.log(user)
+  
   const handleLogOut = () => {
     localStorage.removeItem("a_t");
     localStorage.removeItem("r_t");
