@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import UserContext from "./context/UserContext";
 import AuthContext from "./context/AuthContext";
 import Register from "./pages/Register/Register";
+import Pets from "./pages/Pets/CreatePet";
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -29,6 +31,10 @@ function App() {
           <Route exact path="/register">
             {logged ? <Register /> : <Login />}
           </Route>
+          <Route exact path="/createPet">
+            {logged ? <Pets /> : <Login />}
+          </Route>
+
         </Switch>
       </AuthContext.Provider>
     </UserContext.Provider>
