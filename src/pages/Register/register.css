@@ -26,8 +26,7 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background: url("../../bg.jpg") no-repeat center;
-  background-size: cover;
+  background: rgba(209, 151, 16,.9);
 }
 
 .Login{

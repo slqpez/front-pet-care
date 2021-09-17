@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../../components/utils/Spinner/Spinner"
 import "./createPet.css";
 
 function CreatePet() {
@@ -12,18 +13,9 @@ function CreatePet() {
   });
 
   const vaccine = ['du', 'ff','dd', 'dd','dd'];
-  const listVaccine = vaccine.map((vaccine) =>
-    <li>{vaccine}</li>
-  );
+ 
 
 
-  
-  const [message, setMessage] = useState({
-    text: false,
-    text: "",
-    text: "",
-    text: "",
-  });
   const [isLoading, setIsLoading] = useState(false);
   
 
@@ -32,21 +24,20 @@ function CreatePet() {
   };
 
   const handleSubmit = (e) => {
-    setIsLoading(true);
     e.preventDefault();
+    setIsLoading(true);
   };
   
   return (
     <div>
       <div className="pet-container">
        <Link className="back-btn" to="/">Volver ⬅</Link>
-      {message.show ? (
+      {/* {message.show ? (
         <Message text={message.text} type={message.type} />
-      ) : null}
+      ) : null} */}
       <div className="CreatePet">
         
         <h2 className="title">Crear Mascota</h2>
-
         <form onSubmit={handleSubmit}>
           <div className="inputs-container">
             <input

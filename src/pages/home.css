@@ -1,18 +1,35 @@
 .Home{
-  background: grey;
+  background-color: var(--btn-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap:2em;
   height: 100vh;
-  padding: 2em;
-  
 }
 
 
-.Home > h1{
-  margin: 2em;
+.Home > header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding:1em 2em 1em 1em;
+  box-shadow: 0px 3px 1px 0px rgba(59, 59, 59,0.06);
+}
+
+
+
+.user-info-container{
+  display: flex;
+}
+
+.avatar-container > img{
+  margin-right: 1em;
+  border-radius:50%;
+}
+
+.Home h1{
+  font-size: 1.6em;
+  color: var(--background-color);
 }
 
 .btn-create{
@@ -35,13 +52,139 @@
 .btn-out{
   background: rgb(255, 0, 0);
   border: none;
-  width: 200px;
+  width: 130px;
   padding: .7em;
   border-radius: 20px;
   color: #fff;
+  font-size: .8em;
   cursor: pointer;
 }
 
 .btn-out:hover{
   background: rgba(255, 0, 0,.8);
 }
+
+
+.content{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.content aside{
+  background: var(--background-color);
+}
+
+aside{
+  height: calc(100vh - 4.7em);
+}
+
+.navbar-aside{
+  display: flex;
+  height: 100%;
+  padding: 2em 1em;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.navbar-aside div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2em;
+}
+
+.navbar-aside div a, .navbar-aside a{
+  text-decoration: none;
+  text-align: start;
+  width: 100%;
+  color: rgb(226, 226, 189);
+  padding-bottom: .5em;
+  border-bottom: 1px solid rgb(226, 226, 189) ;
+}
+
+.navbar-aside a{
+  text-align: center;
+}
+
+aside nav a:hover{
+  color: var(--btn-color);
+}
+
+.dashboard{
+  background-color:rgb(226, 226, 189) ;
+  width:100%
+}
+
+
+/*-----------table--------*/
+table {
+  table-layout: fixed;
+  width: 80%;
+  margin: 2em auto;
+  border-collapse: collapse;
+  border: 1px solid rgb(22, 21, 22);
+}
+
+thead th:nth-child(1) {
+  width: 20%;
+  font-size: 1em;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 25%;
+}
+
+thead th:nth-child(4) {
+  width:5%;
+}
+
+thead th:nth-child(5) {
+  width:10%;
+}
+
+th, td {
+  padding: 10px;
+}
+
+
+
+th {
+  letter-spacing: 1px;
+  font-size: .8em;
+}
+
+td {
+  letter-spacing: 1px;
+  font-size: .8em;
+}
+
+tbody td {
+  text-align: center;
+}
+
+tfoot th {
+  text-align: right;
+}
+
+thead, tfoot {
+  color: white;
+
+}
+
+thead th, tfoot th, tfoot td {
+  background:var(--background-color);
+  border: 1px solid rgb(22, 21, 22);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fffdfe;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(226, 226, 189);
+}
+
