@@ -68,6 +68,12 @@ function Home() {
               <Link to="/register" className="item-aside">
                 Crear nuevo empleado ➕
               </Link>
+              <Link to="/createPet" className="item-aside">
+                Crear nueva mascota ➕
+              </Link>
+              <Link to="/newClient" className="item-aside">
+                Crear nuevo Cliente ➕
+              </Link>
             </div>
             <Link to="/register" className="item-aside">
               Mi perfil 👤

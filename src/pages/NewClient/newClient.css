@@ -1,0 +1,133 @@
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.newClient-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(209, 151, 16,.9);
+}
+
+.newClient-form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5em;
+    background-color: var(--background-color);
+    color: #fff;
+    width: 400px;
+    padding: 2em;
+    border-radius: 8px;
+    margin-bottom: 50px;
+}
+
+
+.newClient-inputs-container{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    margin-bottom: 2em;
+}
+
+.newClient-input{
+    display: block;
+    padding: .6em;
+    background: var(--input-background);
+    color: rgb(226, 226, 189);
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.newClient-input::placeholder{
+    color: rgb(226, 226, 189);
+
+}
+
+.newClient-btn__add{
+    background-color: var(--btn-color-add);
+    color: #fff;
+    border: none;
+    padding: .6em;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+
+}
+
+.newClient-subtitle__h2{
+    text-align: center;
+}
+
+.newClient-subtitle__h3{
+    text-align: center;
+}
+
+.petSize-choise{
+    text-align: center;
+}
+
+.btn-registrar{
+    background-color: var(--btn-color);
+    color: #fff;
+    border: none;
+    padding: .6em;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btn-registrar:hover{
+    background: rgba(209, 151, 16,.9);
+
+}
+
+.newClient-owner-info__icon{
+    background-color: #fff;
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    width: 22px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+ .newClient-inputs-container__owner,  .newClient-input-vaccination{
+    display: none;
+}
+ 
+
+
+.newClient-owner-info{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--btn-color);
+    color: #fff;
+    border: none;
+    padding: .6em;
+    margin-bottom: .5em;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.newClient-owner-info:hover{
+    background: rgba(209, 151, 16,.9);
+}
