@@ -26,3 +26,19 @@ export function getUsers(token){
     .then(data=>data)
     .catch(err=>console.log(err))
 }
+
+
+export function registerUser(user, token){
+  return fetch("http://localhost:4000/api/users", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then(data=> data)
+}
