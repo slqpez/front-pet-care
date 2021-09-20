@@ -53,50 +53,49 @@ function Register() {
 
   return (
     <div>
-      
-       <div className="login-container">
-       <Link className="back-btn" to="/">Volver ⬅</Link>
-      {message.show ? (
-        <Message text={message.text} type={message.type} />
-      ) : null}
-      <div className="Login">
-        <h2 className="login-title">Resgistrar</h2>
+      <div className="login-container">
+        <Link className="back-btn" to="/">
+          Volver ⬅
+        </Link>
+        {message.show ? (
+          <Message text={message.text} type={message.type} />
+        ) : null}
+        <div className="Login">
+          <h2 className="login-title">Resgistrar</h2>
 
-        <form onSubmit={handleSubmit}>
-          <div className="inputs-container">
-            <input
-              className="input-login"
-              type="text"
-              name="username"
-              onChange={handleInputs}
-              placeholder="Nombre de usuario"
-              value={inputData.username}
-            />
-            <input
-              className="input-login"
-              type="text"
-              name="email"
-              onChange={handleInputs}
-              placeholder="Correo"
-              value={inputData.email}
-            />
-            <input
-              className="input-login"
-              type="password"
-              name="password"
-              onChange={handleInputs}
-              placeholder="Contraseña"
-              value={inputData.password}
-            />
-          </div>
-
-          <button className="btn-login">Registrar</button>
-        </form>
+          <form onSubmit={handleSubmit}>
+            <div className="inputs-container">
+              <input
+                className="input-login"
+                type="text"
+                name="username"
+                onChange={handleInputs}
+                placeholder="Nombre de usuario"
+                value={inputData.username}
+              />
+              <input
+                className="input-login"
+                type="text"
+                name="email"
+                onChange={handleInputs}
+                placeholder="Correo"
+                value={inputData.email}
+              />
+              <input
+                className="input-login"
+                type="password"
+                name="password"
+                onChange={handleInputs}
+                placeholder="Contraseña"
+                value={inputData.password}
+              />
+            </div>
+            <button className="btn-login">Registrar</button>
+          </form>
+        </div>
+        {isLoading ? <Spinner></Spinner> : null}
       </div>
-      {isLoading ? <Spinner></Spinner> : null}
     </div>
-    </div>
-   
   );
 }
 

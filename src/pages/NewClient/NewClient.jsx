@@ -78,6 +78,7 @@ function NewClient() {
             <button className="newClient-btn__add">
               Agregar más propietarios
             </button>
+            
           </div>
           <div className="newClient-pet">
             <h2 className="newClient-subtitle__h2">
