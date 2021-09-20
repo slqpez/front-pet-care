@@ -1,14 +1,16 @@
 import React from "react";
+import "./clientForm.css";
+
 
 function ClientForm({handleCLientsForm, userData}) {
   return (
-    <div className="newClient-owner-info">
-      <details>
-        <summary>
+    <div className="newClient-owner-container">
+      <details className="newClient-owner__details">
+        <summary className="newClient-owner-info">
           <p> Información del dueño </p>
+          <p className="newClient-owner-info__icon"> +</p>
         </summary>
         <div className="newClient-inputs-container newClient-inputs-container__owner">
-          <label htmlFor="ownerFirstname"/>
           <input
             type="text"
             className="newClient-input"

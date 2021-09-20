@@ -1,0 +1,30 @@
+.newClient-owner__details {
+  display: block;
+  width: 100%;
+}
+
+.newClient-owner-info__icon {
+  background-color: #fff;
+  color: red;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  width: 22px;
+}
+
+.newClient-owner-info {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--btn-color);
+  color: #fff;
+  padding: 0.6em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.newClient-owner-info:hover{
+    background: rgba(209, 151, 16,.9);
+}

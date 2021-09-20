@@ -1,15 +1,13 @@
 import React, { useState, useContext } from "react";
 import ClientForm from "../../components/ClientForm/ClientForm";
 import { Link } from "react-router-dom";
-import {createOwner} from "../../services/owners"
-import {createPet} from "../../services/pets"
+import { createOwner } from "../../services/owners";
+import { createPet } from "../../services/pets";
 
 import "./newClient.css";
 
 function NewClient() {
-
- const user = JSON.parse(localStorage.getItem("user"))
-
+  const user = JSON.parse(localStorage.getItem("user"));
 
   //const [clientsForm, setClientsForm] = useState(["p"]);
   const [vaccinationList, setVaccinationList] = useState([]);
@@ -33,27 +31,23 @@ function NewClient() {
     email: "",
     address: "",
   });
-  
-  const handleSubmit = async(e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-   const newOner ={
-      ...userData, 
-      createdBy:user.username ,
-    } 
+    const newOner = {
+      ...userData,
+      createdBy: user.username,
+    };
     console.log(newOner);
-    const ownerCreated = await createOwner(newOner); 
+    const ownerCreated = await createOwner(newOner);
 
-    const newPet ={
-      ...petData, 
-      vaccination:Object.values(vaccArray),
-      owners:[ownerCreated._id]
-    }
+    const newPet = {
+      ...petData,
+      vaccination: Object.values(vaccArray),
+      owners: [ownerCreated._id],
+    };
     console.log(newPet);
-    const petCreated = await createPet(newPet)
-    
-
-
-
+    const petCreated = await createPet(newPet);
   };
 
   const handleInputsPet = (e) => {
@@ -61,7 +55,7 @@ function NewClient() {
   };
 
   const handleCreateNewOwner = () => {
-    console.log("Crear otro form")
+    console.log("Crear otro form");
   };
 
   const handleVacc = () => {
@@ -81,9 +75,6 @@ function NewClient() {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
- 
-
-
   return (
     <div className="newClient-container">
       <Link className="back-btn" to="/">
@@ -100,15 +91,10 @@ function NewClient() {
             <h2 className="newClient-subtitle__h2">
               Información del propietario
             </h2>
-            <div className="newClient-card-container">
-              <div className="newClient-card">
-                <ClientForm
-                  handleCLientsForm={handleCLientsForm}
-                  userData={userData}
-                />
-              </div>
-            </div>
-
+            <ClientForm
+              handleCLientsForm={handleCLientsForm}
+              userData={userData}
+            />
             <button
               className="newClient-btn__add"
               type="button"
