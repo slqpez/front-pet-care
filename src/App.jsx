@@ -8,6 +8,7 @@ import AuthContext from "./context/AuthContext";
 import Register from "./pages/Register/Register";
 import Pets from "./pages/Pets/CreatePet";
 import NewClient from "./pages/NewClient/NewClient";
+import HomeUser from "./pages/HomeUser/HomeUser";
 
 function App() {
   const [user, setUser] = useState({});
@@ -15,8 +16,9 @@ function App() {
 
   useEffect(() => {
     user ? setLogged(true) : setLogged(false);
-  }, []);
 
+  }, []);
+console.log(user)
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <AuthContext.Provider value={{ logged, setLogged }}>

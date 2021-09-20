@@ -4,11 +4,11 @@ import AuthContext from "../context/AuthContext";
 import { useHistory, Link } from "react-router-dom";
 import { getUser, getUsers } from "../services/users";
 import "./home.css";
-
+import HomeUser from "./HomeUser/HomeUser";
 
 function Home() {
   const { user, setUser } = useContext(UserContext);
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
   const { setLogged } = useContext(AuthContext);
   let history = useHistory();
 
@@ -28,11 +28,8 @@ function Home() {
 
   useEffect(() => {
     const token = localStorage.getItem("a_t");
-    getUsers(token)
-    .then((users) => setUsers(users))
-  },[])
-
-  console.log(user);
+    getUsers(token).then((users) => setUsers(users));
+  }, []);
 
   const handleLogOut = () => {
     localStorage.removeItem("a_t");
@@ -62,57 +59,61 @@ function Home() {
         <aside>
           <nav className="navbar-aside">
             <div>
-              <Link to="/" className="item-aside">
-                Administrar empleados 💾
-              </Link>
-              <Link to="/register" className="item-aside">
-                Crear nuevo empleado ➕
-              </Link>
-              <Link to="/createPet" className="item-aside">
-                Crear nueva mascota ➕
-              </Link>
-              <Link to="/newClient" className="item-aside">
-                Crear nuevo Cliente ➕
-              </Link>
+              {user.role === 0 ? (
+                <>
+                  <Link to="/" className="item-aside">
+                    Administrar empleados 💾
+                  </Link>
+                  <Link to="/register" className="item-aside">
+                    Crear nuevo empleado ➕
+                  </Link>
+                </>
+              ) : (
+                <Link to="/newClient" className="item-aside">
+                  Crear nuevo Cliente ➕
+                </Link>
+              )}
             </div>
-            <Link to="/register" className="item-aside">
+            <Link to="/" className="item-aside">
               Mi perfil 👤
             </Link>
           </nav>
         </aside>
-
-        <main className="dashboard">
-          <div>
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Correo</th>
-                  <th scope="col">Rol</th>
-                  <th scope="col">Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map(user=>{
-                  return(
-                    <tr key={user._id}>
-                    <th scope="row">{user._id}</th>
-                    <td>{user.username}</td>
-                    <td>{user.email}</td>
-                    <td>{user.role}</td>
-                    <td>
-                      <button data-id={user._id}>X</button>
-                      <button data-id={user._id}>Y</button>
-                    </td>
+        {user.role === 0 ? (
+          <main className="dashboard">
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Acciones</th>
                   </tr>
-                  )
-                })}
-               
-              </tbody>
-            </table>
-          </div>
-        </main>
+                </thead>
+                <tbody>
+                  {users.map((user) => {
+                    return (
+                      <tr key={user._id}>
+                        <th scope="row">{user._id}</th>
+                        <td>{user.username}</td>
+                        <td>{user.email}</td>
+                        <td>{user.role}</td>
+                        <td>
+                          <button data-id={user._id}>X</button>
+                          <button data-id={user._id}>Y</button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </main>
+        ) : (
+          <HomeUser />
+        )}
       </section>
 
       {/*  <Link to="/register" className="btn-create">

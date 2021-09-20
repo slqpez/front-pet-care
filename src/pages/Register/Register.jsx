@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Message from "../../components/utils/Message";
 import Spinner from "../../components/utils/Spinner/Spinner";
+import { registerUser } from "../../services/users";
 import "./register.css";
 
 function Register() {
@@ -9,6 +10,7 @@ function Register() {
     username: "",
     password: "",
     email: "",
+    role:0
   });
   const [message, setMessage] = useState({
     show: false,
@@ -17,22 +19,21 @@ function Register() {
   });
   const [isLoading, setIsLoading] = useState(false);
 
+  const token=localStorage.getItem("a_t")
+
   const handleInputs = (e) => {
     setInputData({ ...inputData, [e.target.name]: e.target.value });
   };
 
+  const handleRol =(e)=>{
+    setInputData({ ...inputData, role:Number(e.target.value)})
+  }
+
+
   const handleSubmit = (e) => {
     setIsLoading(true);
     e.preventDefault();
-    fetch("https://petcareiw.herokuapp.com/api/users", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(inputData),
-    })
-      .then((res) => res.json())
+    registerUser(inputData,token)
       .then((data) => {
         setIsLoading(false);
         if (data.created) {
@@ -75,7 +76,7 @@ function Register() {
               />
               <input
                 className="input-login"
-                type="text"
+                type="email"
                 name="email"
                 onChange={handleInputs}
                 placeholder="Correo"
@@ -89,6 +90,15 @@ function Register() {
                 placeholder="Contraseña"
                 value={inputData.password}
               />
+              <select name="select" onChange={handleRol}>
+                <option value="0" >0: Administrador</option>
+                <option value="1" >1: Asistente de gerencia</option>
+                <option value="2" >2: Gerente financiero</option>
+                <option value="3" >3: Asistente financiero</option>
+                <option value="4" >4: Director de guaerdería</option>
+                <option value="5" >5: Profesor de guardería</option>
+                <option value="6" >6: Conductor de transporte</option>     
+              </select>
             </div>
             <button className="btn-login">Registrar</button>
           </form>
