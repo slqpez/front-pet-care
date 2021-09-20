@@ -31,9 +31,6 @@ function App() {
           <Route exact path="/register">
             {logged ? <Register /> : <Login />}
           </Route>
-          <Route exact path="/createPet">
-            {logged ? <Pets /> : <Login />}
-          </Route>
           <Route exact path="/newClient">
             {logged ? <NewClient /> : <Login />}
           </Route>

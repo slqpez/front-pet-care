@@ -30,7 +30,7 @@ function Home() {
     const token = localStorage.getItem("a_t");
     getUsers(token)
     .then((users) => setUsers(users))
-  },[users])
+  },[])
 
   console.log(user);
 
