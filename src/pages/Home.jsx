@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import UserContext from "../context/UserContext";
 import AuthContext from "../context/AuthContext";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory, Link, Switch, Route } from "react-router-dom";
 import { getUser, getUsers } from "../services/users";
 import "./home.css";
 import HomeUser from "./HomeUser/HomeUser";
@@ -11,7 +11,6 @@ function Home() {
   const { user, setUser } = useContext(UserContext);
   const [users, setUsers] = useState([]);
   const { setLogged } = useContext(AuthContext);
-  let history = useHistory();
 
   useEffect(() => {
     const token = localStorage.getItem("a_t");
@@ -60,7 +59,7 @@ function Home() {
       <section className="content">
         <aside className="aside close">
           <nav className="navbar-aside">
-            <h2 className>PetCare</h2>
+            <h2>PetCare</h2>
 
             <div className="flex-div">
               {user.role === 0 ? (

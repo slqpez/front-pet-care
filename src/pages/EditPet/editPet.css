@@ -1,0 +1,29 @@
+.editForm{
+  background-color: #091A2E;
+  width:500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  padding:2em;
+}
+
+.editContainer{
+  margin: 0 auto;
+  width: 500px;
+}
+
+.editForm input{
+  padding:.5em;
+}
+
+.editForm button{
+  margin: 0 auto;
+  border: none;
+}
+
+.editContainer a{
+  text-decoration: none;
+  color: aliceblue;
+  background:rgb(199, 23, 23);
+  padding:.5em;margin: 1em;
+}

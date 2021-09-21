@@ -1,0 +1,38 @@
+.petView{
+  background-color: #091A2E;
+  width: 400px;
+  color: white;
+  margin: 20px auto;
+  padding:3em;
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.petView h2{
+  text-align: center;
+  color: #D29812;
+}
+
+.petViewContainer a{
+  text-decoration: none;
+  color: antiquewhite;
+  background-color: rgb(185, 7, 7);
+  padding:1em;
+  margin: 1em;
+}
+
+.petViewContainer a:hover{
+  background-color: rgba(184, 21, 21, 0.95);
+}
+
+.petView h3{
+  margin-top: 2em;
+  color: #D29812;
+}
+
+.ownerPetView{
+  display: flex;
+  gap: 1em;flex-direction: column;
+}
