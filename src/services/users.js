@@ -1,6 +1,6 @@
 // https://petcareiw.herokuapp.com/api/users/getUser
 
-const BASE_URL = "http://localhost:4000/api/users";
+const BASE_URL = "https://petcareiw.herokuapp.com/api/users";
 
 export function getUser(token) {
   return fetch(`${BASE_URL}/user`, {
@@ -29,7 +29,7 @@ export function getUsers(token) {
 }
 
 export function registerUser(user, token) {
-  return fetch("http://localhost:4000/api/users", {
+  return fetch(`${BASE_URL}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
