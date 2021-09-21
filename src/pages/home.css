@@ -1,38 +1,42 @@
-.Home{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Home {
   background-color: var(--btn-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   height: 100vh;
+  overflow-y: auto;
 }
 
-
-.Home > header{
+.Home > header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding:1em 2em 1em 1em;
-  box-shadow: 0px 3px 1px 0px rgba(59, 59, 59,0.06);
+  padding: 1em 2em 1em 1em;
+  box-shadow: 0px 3px 1px 0px rgba(59, 59, 59, 0.06);
 }
 
-
-
-.user-info-container{
+.user-info-container {
   display: flex;
 }
 
-.avatar-container > img{
+.avatar-container > img {
   margin-right: 1em;
-  border-radius:50%;
+  border-radius: 50%;
 }
 
-.Home h1{
+.Home h1 {
   font-size: 1.6em;
   color: var(--background-color);
 }
 
-.btn-create{
+.btn-create {
   text-decoration: none;
   text-align: center;
   font-size: 1em;
@@ -44,77 +48,79 @@
   cursor: pointer;
 }
 
-.btn-create:hover{
-  background: rgba(62, 122, 2,.8)
+.btn-create:hover {
+  background: rgba(62, 122, 2, 0.8);
 }
 
-
-.btn-out{
+.btn-out {
   background: rgb(255, 0, 0);
   border: none;
   width: 130px;
-  padding: .7em;
+  padding: 0.7em;
   border-radius: 20px;
   color: #fff;
-  font-size: .8em;
+  font-size: 0.8em;
   cursor: pointer;
 }
 
-.btn-out:hover{
-  background: rgba(255, 0, 0,.8);
+.btn-out:hover {
+  background: rgba(255, 0, 0, 0.8);
 }
 
-
-.content{
+.content {
   width: 100%;
   display: flex;
   justify-content: flex-start;
 }
 
-.content aside{
+.content aside {
   background: var(--background-color);
 }
 
-aside{
+aside {
   height: calc(100vh - 4.7em);
 }
 
-.navbar-aside{
+.navbar-aside {
   display: flex;
   height: 100%;
   padding: 2em 1em;
   flex-direction: column;
   justify-content: space-between;
 }
-.navbar-aside div{
+.navbar-aside div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 2em;
 }
 
-.navbar-aside div a, .navbar-aside a{
+.navbar-aside div:last-child{
+  display: none;
+}
+
+.navbar-aside div a,
+.navbar-aside a {
   text-decoration: none;
   text-align: start;
   width: 100%;
   color: rgb(226, 226, 189);
-  padding-bottom: .5em;
-  border-bottom: 1px solid rgb(226, 226, 189) ;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgb(226, 226, 189);
 }
 
-.navbar-aside a{
+.navbar-aside a {
   text-align: center;
 }
 
-aside nav a:hover{
+aside nav a:hover {
   color: var(--btn-color);
 }
 
-.dashboard{
-  background-color:rgb(226, 226, 189) ;
-  width:100%
+.dashboard {
+  background-color: rgb(226, 226, 189);
+  width: 100%;
 }
-
 
 /*-----------table--------*/
 table {
@@ -139,27 +145,26 @@ thead th:nth-child(3) {
 }
 
 thead th:nth-child(4) {
-  width:5%;
+  width: 5%;
 }
 
 thead th:nth-child(5) {
-  width:10%;
+  width: 10%;
 }
 
-th, td {
+th,
+td {
   padding: 10px;
 }
 
-
-
 th {
   letter-spacing: 1px;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 td {
   letter-spacing: 1px;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 tbody td {
@@ -170,13 +175,15 @@ tfoot th {
   text-align: right;
 }
 
-thead, tfoot {
+thead,
+tfoot {
   color: white;
-
 }
 
-thead th, tfoot th, tfoot td {
-  background:var(--background-color);
+thead th,
+tfoot th,
+tfoot td {
+  background: var(--background-color);
   border: 1px solid rgb(22, 21, 22);
 }
 
@@ -188,3 +195,84 @@ tbody tr:nth-child(even) {
   background-color: rgb(226, 226, 189);
 }
 
+.navbar-aside h2,
+.hamburger-container,
+.hamburger-img,
+.btn-responsive,
+.btn-container-responsive,
+.responsive-profile {
+  display: none;
+}
+
+@media screen and (max-width: 450px) {
+  .Home > header {
+    display: none;
+  }
+
+  .aside {
+    height: 100vh;
+  }
+
+  .navbar-aside h2 {
+    display: block;
+    margin-bottom: 2em;
+    color: #fff;
+  }
+
+  .flex-div,
+  .hamburger-container {
+    margin-bottom: auto;
+  }
+
+  .hamburger-container {
+    align-self: flex-end;
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .hamburger-container {
+    width: 20px;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+    animation-name: desplazarse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+  }
+
+  .hamburger-container img {
+    width: 20px;
+    height: 25px;
+    display: block;
+  }
+
+  .open {
+    transform: rotate(180deg);
+  }
+
+  .responsive-profile,
+  .btn-container-responsive,
+  .btn-responsive {
+    display: block;
+  }
+
+  .close{
+    width: 40px;
+  }
+
+  .close h2{
+    display: none;
+  }
+
+  @keyframes desplazarse {
+    from {
+      right: 5px;
+    }
+    to {
+      right: -10px;
+    }
+  }
+}

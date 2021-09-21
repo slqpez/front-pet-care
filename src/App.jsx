@@ -20,7 +20,8 @@ function App() {
   }, []);
 console.log(user)
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <div className="App">
+          <UserContext.Provider value={{ user, setUser }}>
       <AuthContext.Provider value={{ logged, setLogged }}>
         <Switch>
           <Route exact path="/">
@@ -39,6 +40,7 @@ console.log(user)
         </Switch>
       </AuthContext.Provider>
     </UserContext.Provider>
+    </div>
   );
 }
 

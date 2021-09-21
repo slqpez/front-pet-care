@@ -5,6 +5,7 @@ import { useHistory, Link } from "react-router-dom";
 import { getUser, getUsers } from "../services/users";
 import "./home.css";
 import HomeUser from "./HomeUser/HomeUser";
+import flecha from "../images/flecha.png"
 
 function Home() {
   const { user, setUser } = useContext(UserContext);
@@ -41,7 +42,7 @@ function Home() {
 
   return (
     <div className="Home">
-      <header>
+      <header className="header-home">
         <div className="user-info-container">
           <div className="avatar-container">
             <img src={user.avatar} alt="User avatar" width="40" height="40" />
@@ -55,10 +56,13 @@ function Home() {
           </button>
         </div>
       </header>
+
       <section className="content">
-        <aside>
+        <aside className="aside close">
           <nav className="navbar-aside">
-            <div>
+            <h2 className>PetCare</h2>
+
+            <div className="flex-div">
               {user.role === 0 ? (
                 <>
                   <Link to="/" className="item-aside">
@@ -74,9 +78,20 @@ function Home() {
                 </Link>
               )}
             </div>
-            <Link to="/" className="item-aside">
+            <div className="hamburger-container open ">
+                <img className="hamburger-img" src={flecha} alt="" />
+            </div>
+            <Link to="/" className="item-aside profile">
               Mi perfil 👤
             </Link>
+            <Link to="/" className="item-aside responsive-profile">
+              {user.username} 👤
+            </Link>
+            <div className="btn-container btn-container-responsive ">
+              <button className="btn-out btn-responsive" onClick={handleLogOut}>
+                Salir
+              </button>
+            </div>
           </nav>
         </aside>
         {user.role === 0 ? (
