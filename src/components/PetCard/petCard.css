@@ -1,0 +1,30 @@
+.petCard{
+  border: 1px solid black;
+  padding:2em;
+  cursor: pointer;
+  background: rgba(9, 26, 46) url("../../images/dog.png") no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  width: 200px;
+  text-decoration: none;
+  margin-bottom: 1em;
+}
+
+.petCard:hover{
+  background-color: rgba(9, 26, 46,.95);
+}
+
+.petCard h4{
+  font-size: 1.4em;
+  color:wheat;
+  font-weight: bold;
+}
+
+.petCardContainer button{
+  margin: 0 .5em;
+  padding: .3em .5em;
+  cursor: pointer;
+}

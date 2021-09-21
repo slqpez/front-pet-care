@@ -17,8 +17,8 @@ export function createOwner(owner){
      .catch(err=> console.log(err))
  }
 
-export function getUsers(token){
-  return fetch(`${BASE_URL}`,{
+export function getOwner(id,token){
+  return fetch(`${BASE_URL}/owner/${id}`,{
     headers:{
       Accept: "application/json",
       "Content-Type": "application/json",
