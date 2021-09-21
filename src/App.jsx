@@ -9,12 +9,9 @@ import Register from "./pages/Register/Register";
 import Pets from "./pages/Pets/CreatePet";
 import NewClient from "./pages/NewClient/NewClient";
 import HomeUser from "./pages/HomeUser/HomeUser";
-<<<<<<< HEAD
 import EditUser from "./pages/EditUser/EditUser";
-=======
 import PetView from "./pages/PetView/PetView"
 import EditPet from "./pages/EditPet/EditPet"
->>>>>>> df9f00c4c3e013e36b3df7b3c6c038d6435896b3
 
 function App() {
   const [user, setUser] = useState({});
@@ -43,11 +40,9 @@ console.log(user)
           <Route exact path="/newClient">
             {logged ? <NewClient /> : <Login />}
           </Route>
-<<<<<<< HEAD
           <Route exact path="/editUser/:id">
             {logged ? <EditUser /> : <Login />}
           </Route>
-=======
           <Route exact path="/pet/:id">
             {logged ? <PetView /> : <Login />}
           </Route>
@@ -56,7 +51,6 @@ console.log(user)
             {logged ? <EditPet /> : <Login />}
           </Route>
 
->>>>>>> df9f00c4c3e013e36b3df7b3c6c038d6435896b3
         </Switch>
       </AuthContext.Provider>
     </UserContext.Provider>

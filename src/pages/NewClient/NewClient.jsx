@@ -48,6 +48,7 @@ function NewClient() {
     };
     console.log(newPet);
     const petCreated = await createPet(newPet);
+    console.log(petCreated);
   };
 
   const handleInputsPet = (e) => {

@@ -14,11 +14,8 @@ function Home() {
   const [users, setUsers] = useState([]);
   const [pager, setPager] = useState(1);
   const { setLogged } = useContext(AuthContext);
-<<<<<<< HEAD
   const [isDeleted, setIsDeleted] = useState(false);
   let history = useHistory();
-=======
->>>>>>> df9f00c4c3e013e36b3df7b3c6c038d6435896b3
 
   useEffect(() => {
     const token = localStorage.getItem("a_t");
@@ -112,10 +109,7 @@ function Home() {
         <aside className="aside close">
           <nav className="navbar-aside">
             <h2>PetCare</h2>
-<<<<<<< HEAD
-=======
 
->>>>>>> df9f00c4c3e013e36b3df7b3c6c038d6435896b3
             <div className="flex-div">
               {user.role === 0 ? (
                 <>
