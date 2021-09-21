@@ -9,6 +9,7 @@ import Register from "./pages/Register/Register";
 import Pets from "./pages/Pets/CreatePet";
 import NewClient from "./pages/NewClient/NewClient";
 import HomeUser from "./pages/HomeUser/HomeUser";
+import EditUser from "./pages/EditUser/EditUser";
 
 function App() {
   const [user, setUser] = useState({});
@@ -36,6 +37,9 @@ console.log(user)
           </Route>
           <Route exact path="/newClient">
             {logged ? <NewClient /> : <Login />}
+          </Route>
+          <Route exact path="/editUser/:id">
+            {logged ? <EditUser /> : <Login />}
           </Route>
         </Switch>
       </AuthContext.Provider>

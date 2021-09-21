@@ -5,12 +5,16 @@ import { useHistory, Link } from "react-router-dom";
 import { getUser, getUsers } from "../services/users";
 import "./home.css";
 import HomeUser from "./HomeUser/HomeUser";
-import flecha from "../images/flecha.png"
+import flecha from "../images/flecha.png";
+import swal from 'sweetalert';
+import {deleteUser} from "../services/users.js";
 
 function Home() {
   const { user, setUser } = useContext(UserContext);
   const [users, setUsers] = useState([]);
+  const [pager, setPager] = useState(1);
   const { setLogged } = useContext(AuthContext);
+  const [isDeleted, setIsDeleted] = useState(false);
   let history = useHistory();
 
   useEffect(() => {
@@ -29,8 +33,10 @@ function Home() {
 
   useEffect(() => {
     const token = localStorage.getItem("a_t");
-    getUsers(token).then((users) => setUsers(users));
-  }, []);
+    getUsers(token).then((users) =>
+      setUsers(users.slice(pager - 1, pager + 2))
+    );
+  }, [pager, isDeleted]);
 
   const handleLogOut = () => {
     localStorage.removeItem("a_t");
@@ -39,6 +45,48 @@ function Home() {
     setLogged(false);
     window.location.href = "/login";
   };
+
+  const handlePagerNext = () => {
+    setPager(pager + 3);
+  };
+
+  const handlePagerPrevious = () => {
+    if (pager === 1) {
+    } else if (pager > 0) {
+      setPager(pager - 3);
+    }
+  };
+
+
+  const handleEdit = (e) => {
+    const id = e.target.getAttribute("data-id");
+    history.push(`editUser/${id}`)
+  }
+
+
+
+  function handleDelete(e) {
+    const id = e.target.getAttribute("data-id");
+    const token=localStorage.getItem("a_t");
+    swal("¿Estás seguro que quieres eliminar el usuario?", {
+      buttons: ["Cancelar", "Sí, eliminar"],
+    }).then((value) => {
+      if (value) {
+        deleteUser(id,token)
+          .then((res) => {
+            swal(`Eliminaste el usuario.`, {
+              icon: "success",
+            })
+            setIsDeleted(!isDeleted)
+          })
+          .catch((res) => {
+            swal(`No se pudo elimiar el usuario.`, {
+              icon: "error",
+            });
+          });
+      }
+    });
+  }
 
   return (
     <div className="Home">
@@ -60,8 +108,7 @@ function Home() {
       <section className="content">
         <aside className="aside close">
           <nav className="navbar-aside">
-            <h2 className>PetCare</h2>
-
+            <h2>PetCare</h2>
             <div className="flex-div">
               {user.role === 0 ? (
                 <>
@@ -79,7 +126,7 @@ function Home() {
               )}
             </div>
             <div className="hamburger-container open ">
-                <img className="hamburger-img" src={flecha} alt="" />
+              <img className="hamburger-img" src={flecha} alt="" />
             </div>
             <Link to="/" className="item-aside profile">
               Mi perfil 👤
@@ -96,37 +143,47 @@ function Home() {
         </aside>
         {user.role === 0 ? (
           <main className="dashboard">
-            <div>
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Rol</th>
-                    <th scope="col">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {users.map((user) => {
-                    return (
-                      <tr key={user._id}>
-                        <th scope="row">{user._id}</th>
-                        <td>{user.username}</td>
-                        <td>{user.email}</td>
-                        <td>{user.role}</td>
-                        <td>
-                          <button data-id={user._id}>X</button>
-                          <button data-id={user._id}>Y</button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Rol</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((user) => {
+                  return (
+                    <tr key={user._id}>
+                      <td data-titulo="Id:" scope="row">
+                        {user._id}
+                      </td>
+                      <td data-titulo="Nombre:">{user.username}</td>
+                      <td data-titulo="Correo:">{user.email}</td>
+                      <td data-titulo="Rol:">{user.role}</td>
+                      <td>
+                        <button className="btn-delete" data-id={user._id}  onClick={handleDelete}>
+                          ❌
+                        </button>
+                        <button className="btn-update" data-id={user._id} onClick={handleEdit} >📋</button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+            <div className="btn-pages-container">
+              <button className="btn-previous" onClick={handlePagerPrevious}>
+                Anterior
+              </button>
+              <button className="btn-next" onClick={handlePagerNext}>
+                Siguiente
+              </button>
             </div>
           </main>
-        ) : (
+        ) : ( 
           <HomeUser />
         )}
       </section>
