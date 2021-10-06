@@ -1,6 +1,6 @@
 //https://petcareiw.herokuapp.com/api/auth
 
-const BASE_URL = 'https://petcareiw.herokuapp.com/api/auth'
+const BASE_URL = 'http://localhost:4000/api/auth'
 
 
 export function login(user){

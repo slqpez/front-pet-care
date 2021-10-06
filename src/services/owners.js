@@ -1,6 +1,6 @@
 // https://petcareiw.herokuapp.com/api/owners
 
-const BASE_URL = 'https://petcareiw.herokuapp.com/api/owners'
+const BASE_URL = 'http://localhost:4000/api/owners'
 
 
 export function createOwner(owner){

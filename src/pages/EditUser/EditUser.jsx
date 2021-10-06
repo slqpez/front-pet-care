@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { useHistory, Link } from "react-router-dom";
-import {getUser} from "../../services/users.js"
+import {getUserByID, editUser} from "../../services/users.js"
 
 function EditUser() {
   const { id } = useParams();
@@ -16,21 +16,29 @@ function EditUser() {
   });
 
   useEffect(() =>{
-      getUser(token)
+    getUserByID(token, id)
       .then(data => setInputData(data))
   }, [])
 
   const [userEdit, setUserEdit] = useState({});
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setUserEdit(inputData);
-    const res = await editUser(id, token, inputData);
-   };
+ 
 
   const handleInputs = (e) => {
     setInputData({ ...inputData, [e.target.name]: e.target.value });
   };
+
+
+  const handleRol =(e)=>{
+    setInputData({ ...inputData, role:Number(e.target.value)})
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setUserEdit(inputData);
+    const res = await editUser(id, token, inputData);
+    console.log(res)
+   };
 
   return (
     <div>
@@ -57,15 +65,8 @@ function EditUser() {
               placeholder="Correo"
               value={inputData.email}
             />
-            <input
-              className="input-login"
-              type="password"
-              name="password"
-              onChange={handleInputs}
-              placeholder="Contraseña"
-              value={inputData.password}
-            />
-            <select name="select">
+
+            <select name="select" onChange={handleRol}>
               <option value="0">0: Administrador</option>
               <option value="1">1: Asistente de gerencia</option>
               <option value="2">2: Gerente financiero</option>
