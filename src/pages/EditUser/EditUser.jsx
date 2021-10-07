@@ -6,7 +6,7 @@ import {getUserByID, editUser} from "../../services/users.js"
 function EditUser() {
   const { id } = useParams();
   const token = localStorage.getItem("a_t");
-
+  const [edited,setEdited] = useState(false)
 
   const [inputData, setInputData] = useState({
     username: "",
@@ -36,8 +36,17 @@ function EditUser() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setUserEdit(inputData);
-    const res = await editUser(id, token, inputData);
-    console.log(res)
+
+    try{
+      const res = await editUser(id, token, inputData);
+      setEdited(true);
+      setTimeout(() => {
+        setEdited(false)
+      },2000)
+    }catch(e){
+      console.log(err)
+    }
+   
    };
 
   return (
@@ -78,6 +87,7 @@ function EditUser() {
           </div>
           <button className="btn-login">Actualizar</button>
         </form>
+        {edited?<p>Usuario actualizado correctamente.</p>:null}
       </div>
     </div>
   );

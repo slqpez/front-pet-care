@@ -3,8 +3,14 @@ import ClientForm from "../../components/ClientForm/ClientForm";
 import { Link } from "react-router-dom";
 import { createOwner } from "../../services/owners";
 import { createPet } from "../../services/pets";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import "./newClient.css";
+
+
+const customId = "custom-id-yes";
 
 function NewClient() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -19,6 +25,10 @@ function NewClient() {
     age: "",
     care: "",
     vaccination: [],
+  });
+  const [error,setError]= useState({
+    iserror : false,
+    message: ""
   });
 
   const [userData, setUserData] = useState({
@@ -38,8 +48,8 @@ function NewClient() {
       ...userData,
       createdBy: user.username,
     };
-    console.log(newOner);
     const ownerCreated = await createOwner(newOner);
+    console.log(ownerCreated)
 
     const newPet = {
       ...petData,
@@ -48,7 +58,30 @@ function NewClient() {
     };
     console.log(newPet);
     const petCreated = await createPet(newPet);
-    console.log(petCreated);
+    if(petCreated.message){
+      toast.error('Completa todos los campos.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        toastId: customId
+        });
+    }else{
+      toast.success('Cliente y mascota agregados correctamente.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        toastId: customId
+        });
+        window.scrollTo(0, 0);
+    }
   };
 
   const handleInputsPet = (e) => {
@@ -185,6 +218,7 @@ function NewClient() {
           <button className="btn-registrar">Registrar</button>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 }
