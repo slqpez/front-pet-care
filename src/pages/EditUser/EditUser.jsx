@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { useHistory, Link } from "react-router-dom";
 import {getUserByID, editUser} from "../../services/users.js"
+import "./editUser.css"
 
 function EditUser() {
   const { id } = useParams();
@@ -51,15 +52,16 @@ function EditUser() {
 
   return (
     <div>
+      <div className="editUser-container">
       <Link className="back-btn" to="/">
         Volver ⬅
       </Link>
-      <div className="Login">
-        <h2 className="login-title">Actualizar Usuario</h2>
+      <div className="editUser">
+        <h2 className="editUser-title">Actualizar Usuario</h2>
         <form onSubmit={handleSubmit}>
-          <div className="inputs-container">
+          <div className="inputs-container-editUser">
             <input
-              className="input-login"
+              className="input-editUser"
               type="text"
               name="username"
               onChange={handleInputs}
@@ -67,7 +69,7 @@ function EditUser() {
               value={inputData.username}
             />
             <input
-              className="input-login"
+              className="input-editUser"
               type="email"
               name="email"
               onChange={handleInputs}
@@ -85,9 +87,10 @@ function EditUser() {
               <option value="6">6: Conductor de transporte</option>
             </select>
           </div>
-          <button className="btn-login">Actualizar</button>
+          <button className="btn-editUser">Actualizar</button>
         </form>
         {edited?<p>Usuario actualizado correctamente.</p>:null}
+      </div>
       </div>
     </div>
   );
