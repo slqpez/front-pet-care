@@ -18,47 +18,48 @@ function PetView() {
   }, []);
 
   useEffect(() => {
-    if(pet){
+    if (pet) {
       //console.log(pet.owners[0])
       /* setIdOwner(pet.owners[0]); */
       //getOwner(idOwner, token).then((data) => setOwner(data));
-    }else{
-      console.log("mal")
+    } else {
+      console.log("mal");
     }
     /* if (pet) {
      
     } */
   }, [pet]);
 
-
   return (
-    <div className="petViewContainer">
-      <div className="petView">
-        <h2>{pet.name}</h2>
-        <p>Raza: {pet.breed}</p>
-        <p>Tamaño: {pet.size}</p>
-        <p>Edad: {pet.age}</p>
-        <p>Cuidados: {pet.cares}</p>
-        <p>Vacunas:</p>
-        {pet.vaccination ? (
-          pet.vaccination.map((vacc, i) => {
-            return <li key={i}>{vacc}</li>;
-          })
-        ) : (
-          <p>No tiene vacunas</p>
-        )}
+    <div>
+      <div className="petView-container">
+        <Link to="/" className="back-btn">Volver ⬅</Link>
+        <div className="petView">
+          <h2>{pet.name}</h2>
+          <p>Raza: {pet.breed}</p>
+          <p>Tamaño: {pet.size}</p>
+          <p>Edad: {pet.age}</p>
+          <p>Cuidados: {pet.cares}</p>
+          <p>Vacunas:</p>
+          {pet.vaccination ? (
+            pet.vaccination.map((vacc, i) => {
+              return <li key={i}>{vacc}</li>;
+            })
+          ) : (
+            <p>No tiene vacunas</p>
+          )}
 
-        <h3>Propietario</h3>
-        {owner ? (
-          <div className="ownerPetView">
-            <p>Nombre: {owner.name}</p>
-            <p>Apellido: {owner.lastName}</p>
-            <p>Teléfono: {owner.phone}</p>
-            <p>Correo: {owner.email}</p>
-          </div>
-        ) : null}
+          <h3>Propietario</h3>
+          {owner ? (
+            <div className="ownerPetView">
+              <p>Nombre: {owner.name}</p>
+              <p>Apellido: {owner.lastName}</p>
+              <p>Teléfono: {owner.phone}</p>
+              <p>Correo: {owner.email}</p>
+            </div>
+          ) : null}
+        </div>
       </div>
-      <Link to="/">Volver</Link>
     </div>
   );
 }
