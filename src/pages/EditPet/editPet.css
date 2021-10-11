@@ -1,29 +1,68 @@
-.editForm{
-  background-color: #091A2E;
-  width:500px;
-  margin: 20px auto;
+.back-btn{
+  margin-bottom: 40px;
+  margin-left: 100px;
+  text-decoration: none;
+  color: #091A2E;
+  background: #dddcaf;
+  padding: .6em 1em;
+  border-radius: 10px;
+  align-self: flex-start;
+}
+
+.back-btn:hover{
+  background: #968a6e;
+}
+
+.editPetContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(209, 151, 16,.9);
+}
+
+.editPet{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5em;
+  background-color: var(--background-color);
+  color: #fff;
+  width: 400px;
+  padding: 2em;
+  border-radius: 8px;
+  margin-bottom: 50px;
+}
+
+.inputs-container-editPet{
   display: flex;
   flex-direction: column;
-  padding:2em;
+  gap: .5em;
+  margin-bottom: 2em;
 }
 
-.editContainer{
-  margin: 0 auto;
-  width: 500px;
-}
-
-.editForm input{
-  padding:.5em;
-}
-
-.editForm button{
-  margin: 0 auto;
+.input-editPet{
+  display: block;
+  padding: .6em;
+  background: var(--input-background);
+  color: rgb(226, 226, 189);
+  border-radius: 5px;
+  outline: none;
   border: none;
 }
 
-.editContainer a{
-  text-decoration: none;
-  color: aliceblue;
-  background:rgb(199, 23, 23);
-  padding:.5em;margin: 1em;
+.inputs-container-editPet textarea{
+  resize: none;
+  width: 100%;
+  height: 100px;
+}
+
+  
+@media (max-width: 600px) {
+  .editPet {
+    width:270px
+  }
 }
