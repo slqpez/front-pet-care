@@ -28,3 +28,17 @@
   padding: .3em .5em;
   cursor: pointer;
 }
+
+.btnDelete{
+  background-color:  #f1471c;
+  border: 2px solid #f1471c;
+  border-radius: 6px;
+  color: white;
+}
+
+.btnUpdate{
+  background-color: rgba(9, 26, 46,.95);;
+  border: 2px solid rgba(9, 26, 46,.95);;
+  border-radius: 6px;
+  color: white;
+}

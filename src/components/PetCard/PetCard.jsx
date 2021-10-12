@@ -13,8 +13,8 @@ function PetCard({name, breed, size,id, handleDelete, handleEdit}) {
       <p>{size}</p>
     </Link>
 
-    <button onClick={handleDelete} data-id={id}>Eliminar</button>
-    <button data-id={id} onClick={handleEdit}>Editar</button>
+    <button className="btnDelete" onClick={handleDelete} data-id={id}>Eliminar</button>
+    <button className="btnUpdate" data-id={id} onClick={handleEdit}>Editar</button>
     </div>
     
   )

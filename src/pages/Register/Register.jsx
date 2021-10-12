@@ -62,7 +62,7 @@ function Register() {
           <Message text={message.text} type={message.type} />
         ) : null}
         <div className="Login">
-          <h2 className="login-title">Resgistrar</h2>
+          <h2 className="login-title">Registrar</h2>
 
           <form onSubmit={handleSubmit}>
             <div className="inputs-container">

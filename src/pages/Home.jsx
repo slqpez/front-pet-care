@@ -158,7 +158,6 @@ function Home() {
             <table className="admin-table">
               <thead>
                 <tr>
-                  <th scope="col">Id</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Correo</th>
                   <th scope="col">Rol</th>
@@ -169,9 +168,7 @@ function Home() {
                 {users.map((user) => {
                   return (
                     <tr key={user._id}>
-                      <td data-titulo="Id:" scope="row">
-                        {user._id}
-                      </td>
+                      
                       <td data-titulo="Nombre:">{user.username}</td>
                       <td data-titulo="Correo:">{user.email}</td>
                       <td data-titulo="Rol:">{user.role}</td>

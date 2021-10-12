@@ -129,13 +129,7 @@ function NewClient() {
               handleCLientsForm={handleCLientsForm}
               userData={userData}
             />
-            <button
-              className="newClient-btn__add"
-              type="button"
-              onClick={handleCreateNewOwner}
-            >
-              Agregar más propietarios
-            </button>
+            
           </div>
           <div className="newClient-pet">
             <h2 className="newClient-subtitle__h2">
