@@ -73,7 +73,9 @@ function Login() {
 
           <button type="submit" className="btn-login">Ingresar</button>
 
-          <Link to="/sendEmail">¿Eres cliente?</Link>
+          <div className="linkClient">
+            <Link to="/sendEmail">¿Eres cliente?</Link>
+          </div>
         </form>
       </div>
       {isLoading ? <Spinner></Spinner> : null}

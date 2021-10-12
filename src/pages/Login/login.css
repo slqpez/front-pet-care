@@ -65,6 +65,19 @@
   background: rgba(209, 151, 16,.9);
 }
 
+.linkClient{
+  text-align: center;
+  margin-top: 15px;
+  }
+
+.linkClient a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.linkClient a:hover{
+  color: rgba(209, 151, 16,.9);
+}
 
 @media (max-width: 600px) {
   .Login {

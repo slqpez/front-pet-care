@@ -1,5 +1,6 @@
 import React,{useState}  from 'react'
 import {sendEmail} from "../../services/auth"
+import "./sendemail.css"
 
 function SendEmail() {
 
@@ -24,7 +25,7 @@ function SendEmail() {
   console.log(email)
   
   return (
-    <div>
+    <div className="emailContainer">
 
       <form action="" onSubmit={handleSubmit}>
       <label htmlFor="email">Ingresa tu correo</label>

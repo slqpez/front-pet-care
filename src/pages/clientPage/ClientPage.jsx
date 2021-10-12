@@ -41,7 +41,7 @@ function ClientPage() {
       <p>{pet?.bathed?"Ya está bañado":"Aún no está bañado"}</p>
       <p>{pet?.allergies}</p>
       <p>{pet?.findings}</p>
-
+      <p>{pet?.date}</p>
     </div>
   )
 }

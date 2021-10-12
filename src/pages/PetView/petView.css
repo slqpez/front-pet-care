@@ -11,6 +11,8 @@
 
 .petView-wrapper{
   display: flex;
+  flex-direction:column;
+  width: 100%;
 }
 
 .back-btn:hover{
@@ -21,35 +23,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
+  flex-direction: column ;
+  height: 80vh;
+  width: 80vw;
   background: rgba(209, 151, 16,.9);
+  margin-top: 70px;
+  margin-left: 300px;
 }
 
 .petView{
   display: flex;
-  justify-content: center;
+  justify-content:space-evenly;
   align-items: center;
-  flex-direction: column;
+  flex-direction:row;
   gap: 1.5em;
   background-color: var(--background-color);
   color: #fff;
-  width: 400px;
+  width: 60%;
   padding: 2em;
   border-radius: 8px;
-  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-left: 300px
 }
 
 .petView h2{
-  text-align: center;
   color: #D29812;
-}
-
-
-.petView h3{
-  margin-top: 2em;
-  color: #D29812;
+  padding-bottom: 15px;
 }
 
 .ownerPetView{
@@ -57,6 +56,33 @@
   gap: 1em;flex-direction: column;
 }
 
+.citeContainer{
+  align-items: center;
+  flex-direction:row;
+  gap: 1.5em;
+  background-color: var(--background-color);
+  color: #fff;
+  width: 60%;
+  padding: 2em;
+  border-radius: 8px;
+  margin-top: 50px;
+  margin-left:300px
+}
+
+.citeView{
+  padding-left: 80px;
+}
+
+.btnEditar{
+  margin-bottom: 40px;
+  margin-left: 500px;
+  text-decoration: none;
+  color: #fff;
+  background: #D29812;
+  padding: .6em 1em;
+  margin-top: 30px;
+  border-radius: 10px;
+}
 @media (max-width: 600px) {
   .petView {
     width:270px
