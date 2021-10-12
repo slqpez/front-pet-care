@@ -60,7 +60,21 @@
   height: 100px;
 }
 
-  
+
+.btn-editar{
+  background-color: var(--btn-color);
+  color: #fff;
+  border: none;
+  padding: .6em;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.btn-editar:hover{
+  background: rgba(209, 151, 16,.9);
+}
 @media (max-width: 600px) {
   .editPet {
     width:270px

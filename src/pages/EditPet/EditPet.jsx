@@ -66,7 +66,7 @@ function EditPet() {
               value={inputData.cares}
             />
           </div>
-          <button className="btn-create">Editar</button>
+          <button className="btn-editar">Editar</button>
         </form>
       </div>
     </div>
