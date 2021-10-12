@@ -23,7 +23,7 @@ function NewClient() {
     breed: "",
     size: "",
     age: "",
-    care: "",
+    cares: "",
     vaccination: [],
   });
   const [error,setError]= useState({
@@ -139,7 +139,7 @@ function NewClient() {
           </div>
           <div className="newClient-pet">
             <h2 className="newClient-subtitle__h2">
-              Información de la mascota
+              Información del perro
             </h2>
             <div className="newClient-inputs-container">
               <input
@@ -169,12 +169,12 @@ function NewClient() {
               <textarea
                 type="text"
                 className="newClient-input"
-                name="care"
+                name="cares"
                 placeholder="Cuidados"
-                value={petData.care}
+                value={petData.cares}
                 onChange={handleInputsPet}
               />
-              <h3 className="newClient-subtitle__h3">Tamaño de la mascota</h3>
+              <h3 className="newClient-subtitle__h3">Tamaño del perro</h3>
               <select
                 className="petSize-container"
                 name="petSize"

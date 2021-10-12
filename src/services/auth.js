@@ -15,3 +15,17 @@ export function login(user){
     .then(response => response.json())
     .then(data=>data)
 }
+
+
+export function sendEmail(email){
+  return fetch(`${BASE_URL}/sendtoken`, {
+       method: "POST",
+       headers: {
+         Accept: "application/json",
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify(email),
+     })
+     .then(response => response.json())
+     .then(data=>data)
+ }

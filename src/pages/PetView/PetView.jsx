@@ -14,34 +14,25 @@ function PetView() {
   useEffect(() => {
     getPet(id, token).then((data) => {
       setPet(data);
+      getOwner(data.owners[0], token)
+      .then(ownerData=> setOwner(ownerData))
     });
   }, []);
 
-  useEffect(() => {
-    if(pet){
-      //console.log(pet.owners[0])
-      /* setIdOwner(pet.owners[0]); */
-      //getOwner(idOwner, token).then((data) => setOwner(data));
-    }else{
-      console.log("mal")
-    }
-    /* if (pet) {
-     
-    } */
-  }, [pet]);
+
 
 
   return (
     <div className="petViewContainer">
       <div className="petView">
-        <h2>{pet.name}</h2>
-        <p>Raza: {pet.breed}</p>
-        <p>Tamaño: {pet.size}</p>
-        <p>Edad: {pet.age}</p>
-        <p>Cuidados: {pet.cares}</p>
+        <h2>{pet?.name}</h2>
+        <p>Raza: {pet?.breed}</p>
+        <p>Tamaño: {pet?.size}</p>
+        <p>Edad: {pet?.age}</p>
+        <p>Cuidados: {pet?.cares}</p>
         <p>Vacunas:</p>
-        {pet.vaccination ? (
-          pet.vaccination.map((vacc, i) => {
+        {pet?.vaccination ? (
+          pet?.vaccination.map((vacc, i) => {
             return <li key={i}>{vacc}</li>;
           })
         ) : (
@@ -51,10 +42,10 @@ function PetView() {
         <h3>Propietario</h3>
         {owner ? (
           <div className="ownerPetView">
-            <p>Nombre: {owner.name}</p>
-            <p>Apellido: {owner.lastName}</p>
-            <p>Teléfono: {owner.phone}</p>
-            <p>Correo: {owner.email}</p>
+            <p>Nombre: {owner?.name}</p>
+            <p>Apellido: {owner?.lastName}</p>
+            <p>Teléfono: {owner?.phone}</p>
+            <p>Correo: {owner?.email}</p>
           </div>
         ) : null}
       </div>

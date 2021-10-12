@@ -65,5 +65,5 @@ export function getPet(id,token){
     }
   }).then(res=>res.json())
     .then(data=>data)
-    .catch(err=>console.log(err))
+    .catch(err=>console.log("algo salió mal"))
 }

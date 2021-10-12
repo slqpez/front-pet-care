@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import Message from "../../components/utils/Message";
+import {Link} from "react-router-dom"
 import AuthContext from "../../context/AuthContext"
 import Spinner from "../../components/utils/Spinner/Spinner";
 import { login } from "../../services/auth";
@@ -70,7 +71,9 @@ function Login() {
             />
           </div>
 
-          <button className="btn-login">Ingresar</button>
+          <button type="submit" className="btn-login">Ingresar</button>
+
+          <Link to="/sendEmail">¿Eres cliente?</Link>
         </form>
       </div>
       {isLoading ? <Spinner></Spinner> : null}

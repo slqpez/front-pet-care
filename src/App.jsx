@@ -12,6 +12,10 @@ import HomeUser from "./pages/HomeUser/HomeUser";
 import EditUser from "./pages/EditUser/EditUser";
 import PetView from "./pages/PetView/PetView"
 import EditPet from "./pages/EditPet/EditPet"
+import SendEmail from "./pages/SendEmail/SendEmail"
+import ClientPage from "./pages/ClientPage/ClientPage"
+import Dates from "./pages/Dates/Dates"
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -49,6 +53,19 @@ console.log(user)
 
           <Route exact path="/editPet/:id">
             {logged ? <EditPet /> : <Login />}
+          </Route>
+
+          <Route exact path="/sendEmail">
+            <SendEmail />
+          </Route>
+
+          <Route exact path="/clientpage/:token">
+            <ClientPage />
+          </Route>
+
+            
+          <Route exact path="/dates">
+          {logged ? <Dates /> : <Login />}
           </Route>
 
         </Switch>
