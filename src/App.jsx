@@ -64,7 +64,7 @@ console.log(user)
           </Route>
 
             
-          <Route exact path="/dates">
+          <Route exact path="/dates/:id">
           {logged ? <Dates /> : <Login />}
           </Route>
 

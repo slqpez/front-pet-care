@@ -9,6 +9,10 @@
   align-self: flex-start;
 }
 
+.petView-wrapper{
+  display: flex;
+}
+
 .back-btn:hover{
   background: #968a6e;
 }

@@ -38,6 +38,10 @@ function ClientPage() {
       <p>{pet?.age}</p>
       <p>{pet?.breed}</p>
 
+      <p>{pet?.bathed?"Ya está bañado":"Aún no está bañado"}</p>
+      <p>{pet?.allergies}</p>
+      <p>{pet?.findings}</p>
+
     </div>
   )
 }
