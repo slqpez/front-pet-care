@@ -34,7 +34,7 @@ function PetView() {
         
         <div className="petView">
 
-          <div>
+          <div className="petView-info">
             <h2>{pet?.name}</h2>
             <p>Raza: {pet?.breed}</p>
             <p>Tamaño: {pet?.size}</p>
@@ -69,7 +69,7 @@ function PetView() {
       <div className="citeContainer">
         <div className="citeView">
           <label htmlFor="bathed">¿Bañado?  </label>
-          {pet.date? <input type="checkbox" id="bathed" name="bathed" onChange={handleCheck}/> : null}
+          {pet.date? <input className="ck-box" type="checkbox" id="bathed" name="bathed" onChange={handleCheck}/> : null}
           
 
           <p>Alergias: {pet?.allergies}</p>
