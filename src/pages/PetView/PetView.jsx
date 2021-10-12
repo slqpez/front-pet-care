@@ -20,8 +20,6 @@ function PetView() {
   }, []);
 
 
-
-
   return (
     <div className="petViewContainer">
       <div className="petView">
@@ -49,7 +47,6 @@ function PetView() {
           </div>
         ) : null}
       </div>
-      <Link to="/">Volver</Link>
     </div>
   );
 }

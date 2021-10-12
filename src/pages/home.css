@@ -248,13 +248,20 @@ tbody tr:nth-child(even) {
   margin-right: 0.4em;
 }
 
+.responsive-profile, .profile{
+  pointer-events: none;
+}
+
 @media screen and (max-width: 450px) {
   .Home > header {
     display: none;
   }
 
+  
+
   .aside {
     height: 100vh;
+    max-width: 150px;
   }
 
   .navbar-aside h2 {
@@ -280,6 +287,13 @@ tbody tr:nth-child(even) {
     width: 20px;
     height: 25px;
     cursor: pointer;
+
+  }
+
+  .hamburger-container img {
+    width: 20px;
+    height: 25px;
+    display: block;
     position: relative;
     animation-name: desplazarse;
     animation-duration: 2s;
@@ -287,24 +301,33 @@ tbody tr:nth-child(even) {
     animation-direction: alternate-reverse;
   }
 
-  .hamburger-container img {
-    width: 20px;
-    height: 25px;
-    display: block;
-  }
-
-  .open {
-    transform: rotate(180deg);
-  }
 
   .responsive-profile,
-  .btn-container-responsive,
-  .btn-responsive {
+  .navbar-aside div:last-child,
+  .btn-responsive,
+  .btn-container-responsive{
     display: block;
+  }
+
+
+  .btn-responsive{
+    background: rgb(255, 0, 0);
+    border: none;
+    width: 80px;
+    padding: 0.7em;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 0.8em;
+    cursor: pointer;
+    margin: 0px auto;
+    margin-top: 7px;
+    
   }
 
   .close {
     width: 40px;
+    transform: rotate(180deg);
+
   }
 
   .close h2 {
@@ -315,12 +338,16 @@ tbody tr:nth-child(even) {
     display: none;
   }
 
+  .close button{
+    display: none;
+  }
+
   @keyframes desplazarse {
     from {
       right: 5px;
     }
     to {
-      right: -10px;
+      right: -6px;
     }
   }
   /*-----------table--------*/

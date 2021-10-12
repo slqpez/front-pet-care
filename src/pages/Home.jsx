@@ -16,6 +16,8 @@ function Home() {
   const { setLogged } = useContext(AuthContext);
   const [isDeleted, setIsDeleted] = useState(false);
   let history = useHistory();
+  const [shown, setShown] = useState(true);
+  const [showAside, setShowAside] = useState('close')
 
   useEffect(() => {
     const token = localStorage.getItem("a_t");
@@ -63,6 +65,15 @@ function Home() {
     history.push(`editUser/${id}`)
   }
 
+  const handleShowAside = () => {
+    setShown(!shown);
+    if(shown){
+      setShowAside('open')
+    }else{
+      setShowAside('close')
+    }
+  }
+
 
 
   function handleDelete(e) {
@@ -106,7 +117,7 @@ function Home() {
       </header>
 
       <section className="content">
-        <aside className="aside close">
+        <aside className={`aside ${showAside}`}>
           <nav className="navbar-aside">
             <h2>PetCare</h2>
 
@@ -126,7 +137,7 @@ function Home() {
                 </Link>
               )}
             </div>
-            <div className="hamburger-container open ">
+            <div className="hamburger-container close"  onClick={handleShowAside}>
               <img className="hamburger-img" src={flecha} alt="" />
             </div>
             <Link to="/" className="item-aside profile">
@@ -135,7 +146,7 @@ function Home() {
             <Link to="/" className="item-aside responsive-profile">
               {user.username} 👤
             </Link>
-            <div className="btn-container btn-container-responsive ">
+            <div className="btn-container btn-container-responsive">
               <button className="btn-out btn-responsive" onClick={handleLogOut}>
                 Salir
               </button>
