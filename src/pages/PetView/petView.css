@@ -69,13 +69,9 @@
   margin-left:300px
 }
 
-.citeView{
-  padding-left: 80px;
-}
-
 .btnEditar{
+  display: block;
   margin-bottom: 40px;
-  margin-left: 500px;
   text-decoration: none;
   color: #fff;
   background: #D29812;

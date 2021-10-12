@@ -48,21 +48,19 @@ useEffect(() => {
 
   }
 
-  console.log(inputsData)
-
   return (
     <div className="citeContainer">
       <div className="datesCite">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <DatePicker value={selectedDate} onChange={handleDateChange} />
-          <TimePicker value={selectedDate} onChange={handleDateChange} />
-          <DateTimePicker value={selectedDate} onChange={handleDateChange} />
+          <DatePicker className="fecha" value={selectedDate} onChange={handleDateChange} />
+          <TimePicker className="fecha" value={selectedDate} onChange={handleDateChange} />
+          <DateTimePicker className="hora" value={selectedDate} onChange={handleDateChange} />
         </MuiPickersUtilsProvider>
       </div>
-      <div>
-       <label htmlFor="allergies">Alergias</label>
+      <div className="infoContainer">
+       <label htmlFor="allergies">Alergias: </label>
        <textarea type="text" id="allergies" name="allergies" onChange={handleInput} value={inputsData.allergies}/>
-       <label htmlFor="findings">Hallazgos</label>
+       <label htmlFor="findings">Hallazgos: </label>
        <textarea type="text" id="findings" name="findings" onChange={handleInput} value={inputsData.findings}/>
        
       </div>

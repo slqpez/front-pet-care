@@ -3,6 +3,7 @@ import jwt from 'jwt-decode'
 import {useParams} from "react-router-dom"
 import {getOwner} from "../../services/owners"
 import {getPet} from "../../services/pets"
+import "./clientepage.css";
 
 function ClientPage() {
 
@@ -12,7 +13,6 @@ function ClientPage() {
   const {token} = useParams()
   
   const {id} = jwt(token)
-  console.log(id)
 
   useEffect(() => {
 
@@ -29,19 +29,18 @@ function ClientPage() {
 
   if(!owner) return <p>No tienes mascotas registradas.</p>
 
-  console.log("fcs")
   return (
-    <div>
-      <h3>La información de tu mascota es la siguiente</h3>
-      <p>{pet?.name}</p>
-      <p>{pet?.size}</p>
-      <p>{pet?.age}</p>
-      <p>{pet?.breed}</p>
+    <div className="infoContainer">
+      <h2>La información de tu mascota es la siguiente</h2>
+      <p>Nombre: {pet?.name}</p>
+      <p>Tamaño: {pet?.size}</p>
+      <p>Edad: {pet?.age}</p>
+      <p>Raza: {pet?.breed}</p>
 
-      <p>{pet?.bathed?"Ya está bañado":"Aún no está bañado"}</p>
-      <p>{pet?.allergies}</p>
-      <p>{pet?.findings}</p>
-      <p>{pet?.date}</p>
+      <p>Estado del baño: {pet?.bathed?"Bañado":"Sin bañar"}</p>
+      <p>Alergias: {pet?.allergies}</p>
+      <p>Hallazgos: {pet?.findings}</p>
+      {pet?.bathed ? null: <p>Fecha de cita: {pet?.date}</p>  }
     </div>
   )
 }

@@ -69,7 +69,7 @@ function PetView() {
       <div className="citeContainer">
         <div className="citeView">
           <label htmlFor="bathed">¿Bañado?  </label>
-          <input type="checkbox" id="bathed" name="bathed" onChange={handleCheck}/>
+          {pet.date? <input type="checkbox" id="bathed" name="bathed" onChange={handleCheck}/> : null}
           
 
           <p>Alergias: {pet?.allergies}</p>

@@ -1,0 +1,53 @@
+.emailContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5em;
+  background-color: var(--background-color);
+  color: #fff;
+  width: 430px;
+  padding: 2em;
+  border-radius: 8px;
+  margin-bottom: 50px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.emailContainer button{
+    
+    margin: 18px auto;
+    background-color: var(--btn-color);
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    padding: .5em;
+    border-radius: 3px;  
+}
+
+.emailContainer button:hover{
+    background: rgba(209, 151, 16,.9);
+    
+}
+
+.formEmail input{
+    padding: .3em;
+}
+
+@media screen and (max-width : 700px){
+    .formEmail input,  .formEmail label, .formEmail button{ 
+        display: block;
+    }
+
+    .emailContainer{
+        width: 250px;
+    }
+
+    .formEmail{
+        text-align: center;
+    }
+
+    .formEmail label{
+        margin-bottom: 10px;
+    }
+ }

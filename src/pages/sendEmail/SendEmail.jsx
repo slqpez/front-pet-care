@@ -27,11 +27,13 @@ function SendEmail() {
   return (
     <div className="emailContainer">
 
-      <form action="" onSubmit={handleSubmit}>
-      <label htmlFor="email">Ingresa tu correo</label>
-      <input type="text" id="email" name="email" value={email} onChange={handleInput}/>
-      <button type="submit" >Enviar correo</button>
-      </form>
+      <div className="formEmail">
+        <form action="" onSubmit={handleSubmit}>
+        <label htmlFor="email">Ingresa tu correo </label>
+        <input type="text" id="email" name="email" value={email} onChange={handleInput}/>
+        <button type="submit" >Enviar correo</button>
+        </form>
+      </div>
      
     </div>
   )

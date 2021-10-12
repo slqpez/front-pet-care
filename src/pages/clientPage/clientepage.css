@@ -1,0 +1,22 @@
+.infoContainer{
+display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5em;
+  background-color: var(--background-color);
+  color: #fff;
+  width: 400px;
+  padding: 2em;
+  border-radius: 8px;
+  margin-bottom: 50px;
+  
+  margin: 30px auto;
+}
+
+.infoContainer h2{
+    color: rgba(209, 151, 16,.9);
+}
+
+@media screen and (max-width : 700px){
+   .infoContainer{width: 300px}
+}
